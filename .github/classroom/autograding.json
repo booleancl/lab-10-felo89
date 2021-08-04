@@ -3,7 +3,7 @@
     {
       "name": "Autograde",
       "setup": "npm install",
-      "run": "npm test",
+      "run": "npm run test:ci",
       "input": "",
       "output": "",
       "comparison": "included",
