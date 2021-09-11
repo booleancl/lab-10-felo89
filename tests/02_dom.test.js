@@ -34,21 +34,21 @@ describe('Introduction to the DOM', () => {
     
     it('Every node has nodeType, nodeName and nodeValue', () => {
       expect(document.nodeType).toBe(9)
-      expect(document.nodeName).toBe('#main')
+      expect(document.nodeName).toBe('#document')
       expect(document.nodeValue).toBe(null)
     })
     it('Is a nested structure with a root element',() => {
       // For HTML documents, the root is the <html> tag
       const root = document.documentElement 
-      expect(root.nodeName).toBe('XHTML')
+      expect(root.nodeName).toBe('HTML')
       expect(root.hasChildNodes()).toBe(true)
     })
     it('The root element has two children: HEAD & BODY',() => {
       // For HTML documents, the root is the <html> tag
       const root = document.documentElement 
-      expect(root.childNodes[0].nodeName).toBe('head')
+      expect(root.childNodes[0].nodeName).toBe('HEAD')
       expect(root.childNodes[1].nodeName).toBe('#text')
-      expect(root.childNodes[2].nodeName).toBe('body')
+      expect(root.childNodes[2].nodeName).toBe('BODY')
     })
     it('Any child has access to its parent through the parentNode property',() => {
       // For HTML documents, the root is the <html> tag
@@ -60,7 +60,7 @@ describe('Introduction to the DOM', () => {
       // for(let i = 0; i < body.childNodes.length; i++){
       //   console.log(body.childNodes[i].nodeName);
       // }
-      expect(body.childNodes.length).toBe(4)
+      expect(body.childNodes.length).toBe(9)
     }) 
   })
 
@@ -73,15 +73,15 @@ describe('Introduction to the DOM', () => {
     it('We can check if an element has attributes',() => {
       const attr = body.attributes[0].nodeName
       expect(body.hasAttributes()).toBe(true)
-      expect(attr).toBe('ID')
-      expect(body.getAttribute('id')).toEqual('apps')
+      expect(attr).toBe('id')
+      expect(body.getAttribute('id')).toEqual('app')
     })
 
     it('Accessing the content the hard way',() => {
       const h1 = body.childNodes[1]
       expect(h1.nodeName).toBe('H1')
-      expect(h1.textContent).toBe('Jello, world!')
-      expect(h1.innerHTML).toBe('<bold>Jello, world!</bold>')
+      expect(h1.textContent).toBe('Hello, world!')
+      expect(h1.innerHTML).toBe('<bold>Hello, world!</bold>')
     })
   })
 

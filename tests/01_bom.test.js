@@ -7,6 +7,8 @@
   https://jestjs.io/docs/configuration#testenvironment-string
 **/
 
+const browser = require('jsdom')
+
 describe('The Browser object model', () => {
 
   it('01-Has methods to interact with the window object', () => {
@@ -16,7 +18,7 @@ describe('The Browser object model', () => {
 
   it('02-Is where operators live in the browser too',() => {
     const result = parseInt('4')
-    expect(window.parseInt('2') + 2 ).toEqual(3)
+    expect(window.parseInt('2') + 2 ).toEqual(4)
   })
 
   it('03-Is the global object', () => {
@@ -25,7 +27,8 @@ describe('The Browser object model', () => {
   })
 
   it('04-Has a navigator property', () => {
-    expect(window.navigator.userAgent).toMatch('Chrome')
+    const navigator = 'Mozilla/5.0 (darwin) AppleWebKit/537.36 (KHTML, like Gecko) jsdom/16.6.0'
+    expect(window.navigator.userAgent).toMatch(navigator)
   })
 
   it('05-Has a location property', () => {
@@ -39,8 +42,8 @@ describe('The Browser object model', () => {
     // location = site
     // location.assign(site)
     // location.replace(site)
-    expect(window.location.hostname).toEqual("localjost") 
-    expect(window.location.href).toEqual("http://localjost/") 
+    expect(window.location.hostname).toEqual("localhost") 
+    expect(window.location.href).toEqual("http://localhost/") 
   })
 
   it('06-Has a history property', () => {
