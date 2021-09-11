@@ -27,7 +27,7 @@ describe('The Browser object model', () => {
   })
 
   it('04-Has a navigator property', () => {
-    const navigator = 'Mozilla/5.0 (darwin) AppleWebKit/537.36 (KHTML, like Gecko) jsdom/16.6.0'
+    const navigator = 'Mozilla/5.0 (linux) AppleWebKit/537.36 (KHTML, like Gecko) jsdom/16.6.0'
     expect(window.navigator.userAgent).toMatch(navigator)
   })
 
